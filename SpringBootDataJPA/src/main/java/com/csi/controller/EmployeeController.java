@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1")
-@Slf4j
+//@Slf4j
 public class EmployeeController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class EmployeeController {
     @PostMapping("/signup")
     public Employee signUp(@RequestBody Employee employee)
     {
-        log.info("************Trying to SignUp for Employee: "+ employee.getEmpName());
+       // log.info("************Trying to SignUp for Employee: ");
         return employeeService.signUp(employee);
 
     }
@@ -77,4 +77,11 @@ public class EmployeeController {
         return "all data delete succesfully";
 
     }
+    /*@DeleteMapping("/deletedatabyName/{empName}")
+        public void deleteDataByName(@PathVariable String empName)
+    {
+        employeeService.deleteDataByName(empName);
+       // return "Data Deleted Sucessfully";
+    }*/
+
 }

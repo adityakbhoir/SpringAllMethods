@@ -66,4 +66,6 @@ public class EmployeeServiceImpl {
     public void deleteAllData() {
         employeeDao.deleteAllData();
     }
+
+    /*public void deleteDataByName(String empName) {employeeDao.deleteDataByName(empName);}*/
 }

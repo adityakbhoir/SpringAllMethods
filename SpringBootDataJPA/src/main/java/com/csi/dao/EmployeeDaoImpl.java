@@ -14,70 +14,74 @@ public class EmployeeDaoImpl {
     @Autowired
     EmployeeRepo employeeRepo;
 
-    public Employee  signUp(Employee employee)
-    {
+    public Employee signUp(Employee employee) {
 
 
-       return  employeeRepo.save(employee);
-
-    }
-
-    public  boolean signIn(String empEmailId,String empPassword)
-    {
-        boolean flag=false;
-
-        List<Employee> employeeList= employeeRepo.findAll();
-
-        for (Employee e:employeeList)
-        {
-            if (e.getEmpEmailId().equals(empEmailId) && e.getEmpPassword().equals(empPassword))
-            {
-                flag=true;
-            }
-
-        }
-         return flag;
-
-    }
-
-    public void saveAlldata(List<Employee> employees)
-    {
-      for (Employee emp:employees)
-      {
-          employeeRepo.save(emp);
-      }
-
-    }
-
-    public Optional<Employee> getDataByID(int empId){
-
-        return employeeRepo.findById(empId);
-    }
-    public  Employee getDataByName(String empName)
-    {
-        return employeeRepo.findByEmpName(empName);
-    }
-    public  Employee getByEmailId(String empEmailID)
-    {
-        return employeeRepo.findByEmpEmailId(empEmailID);
-    }
-    public  List<Employee> getAllData()
-    {
-        return employeeRepo.findAll();
-    }
-    public  Employee updataData(Employee employee)
-    {
         return employeeRepo.save(employee);
     }
 
-    public  void deleteDataByID(int empId)
-    {
+    public boolean signIn(String empEmailId, String empPassword) {
+        boolean flag = false;
+
+        List<Employee> employeeList = employeeRepo.findAll();
+
+        for (Employee e : employeeList) {
+            if (e.getEmpEmailId().equals(empEmailId) && e.getEmpPassword().equals(empPassword)) {
+                flag = true;
+            }
+
+        }
+        return flag;
+
+    }
+
+    public void saveAlldata(List<Employee> employees) {
+        for (Employee emp : employees) {
+            employeeRepo.save(emp);
+        }
+
+    }
+
+    public Optional<Employee> getDataByID(int empId) {
+
+        return employeeRepo.findById(empId);
+    }
+
+    public Employee getDataByName(String empName) {
+        return employeeRepo.findByEmpName(empName);
+    }
+
+    public Employee getByEmailId(String empEmailID) {
+        return employeeRepo.findByEmpEmailId(empEmailID);
+    }
+
+    public List<Employee> getAllData() {
+        return employeeRepo.findAll();
+    }
+
+    public Employee updataData(Employee employee) {
+        return employeeRepo.save(employee);
+    }
+
+    public void deleteDataByID(int empId) {
         employeeRepo.deleteById(empId);
     }
-   /// public void deleteAllData() {
+
+    public void deleteAllData() {
         employeeRepo.deleteAll();
     }
+
+    /*public void deleteDataByName(String empName) {
+        for (Employee ee : employeeRepo.findAll()) {
+
+            if (ee.getEmpName().equals(empName)) {
+                employeeRepo.deleteByEmpName(empName);
+            }
+        }
+    }*/
 }
+
+
 
 // your program is up to date
 
